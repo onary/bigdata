@@ -35,8 +35,8 @@ def parse(arg):
 
         if CHANK_SIZE in [len(insertList), len(updateList)]:
             save(insertList, updateList)
-            insertList = []
-            updateList = []
+            insertList.clear()
+            updateList.clear()
 
     save(insertList, updateList)
 
