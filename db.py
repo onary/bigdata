@@ -5,7 +5,6 @@ from settings import DB
 def save(insert, update):
     if len(insert):
         result = DB.products.insert_many(insert)
-        # print(result.inserted_ids)
 
     for item in update:
         query = {'$addToSet': {}, '$set': {}}

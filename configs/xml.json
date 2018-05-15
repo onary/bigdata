@@ -1,6 +1,5 @@
 {
-    "type": "xml",
-    "path": "products.xml",
+    "file": "products.xml",
     "tag": "item_data",
     "fields": {
         "uid": "item_basic_data.item_unique_id",

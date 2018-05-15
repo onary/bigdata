@@ -19,7 +19,7 @@ def csv_reader(config, file):
     with open(file, "r") as csvfile:
         datareader = csv.reader(csvfile, delimiter=config['delimiter'] or ',')
         for row in datareader:
-            if len(row) < config['minRowLength']:
+            if config.get('minRowLength', None) and len(row) < config['minRowLength']:
                 continue
             else:
                 yield parse_row(config['fields'], row)
@@ -44,6 +44,6 @@ def reader(arg):
         return []
 
     config = config_load(arg)
-    file = join(settings.DATA_DIR, config['path'])
+    file = join(settings.DATA_DIR, config['file'])
 
     return func(config, file)

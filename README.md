@@ -50,4 +50,11 @@ III. Handling duplicates in several steps:
     5. Check if we have such hash stored, (quit iteration if hash exists)
     6. Save hash in memory (and append to the record as revision for saving in DB)
 
-    P.S. On large data might be used with Redis
+    P.S. when large data might be used with Redis
+
+
+IV. To use parser you need to write config for your dataset. (e.g. configs/csv.json)
+Then add map to readers.py in READER dict ({config_file_name: function_reader})
+Then you can use parser with command
+
+    python parser.py config_file_name

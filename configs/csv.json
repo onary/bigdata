@@ -1,6 +1,5 @@
 {
-    "type": "csv",
-    "path": "products.txt",
+    "file": "products.txt",
     "delimiter": "|",
     "minRowLength": 34,
     "fields": {
