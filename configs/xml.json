@@ -1,0 +1,39 @@
+{
+    "type": "xml",
+    "path": "products.xml",
+    "tag": "item_data",
+    "fields": {
+        "uid": "item_basic_data.item_unique_id",
+        "title": "item_basic_data.item_title",
+        "category": "item_basic_data.item_category",
+        "sku_number": "item_basic_data.parent_asin",
+        "url": "item_basic_data.item_page_url",
+        "image_url": "item_basic_data.item_image_url",
+        "buy_url": null,
+        "description": "item_basic_data.item_long_desc",
+        "discount": null,
+        "discount_type": null,
+        "currency": null,
+        "retail_price": "item_basic_data.item_price",
+        "sale_price": null,
+        "brand": "item_brand",
+        "manufacture": null,
+        "shipping": "item_basic_data.item_shipping_charge",
+        "availability": "item_basic_data.tp_used_inventory",
+        "sizes": null,
+        "materials": null,
+        "colors": null,
+        "style": null,
+        "gender_group": null,
+        "age_group": null,
+
+
+        "merchant": "item_basic_data.item_merchant_id",
+        "offer_url": "item_basic_data.offer_page_url",
+        "image_url_small": "item_basic_data.item_image_url_small",
+        "image_url_large": "item_basic_data.item_image_url_large",
+        "image_url_hires": "item_basic_data.item_image_url_hires",
+        "abstract": "item_basic_data.item_abstract",
+        "features": "item_features"
+    }
+}

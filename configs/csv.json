@@ -1,0 +1,34 @@
+{
+    "type": "csv",
+    "path": "products.txt",
+    "delimiter": "|",
+    "minRowLength": 34,
+    "fields": {
+        "uid": 0,
+        "title": 1,
+        "category": 3,
+        "sku_number": null,
+        "url": 5,
+        "image_url": 6,
+        "buy_url": null,
+        "description": 9,
+        "discount": null,
+        "discount_type": null,
+        "currency": 25,
+        "retail_price": 12,
+        "sale_price": 13,
+        "brand": 16,
+        "manufacture": null,
+        "shipping": null,
+        "availability": 22,
+        "sizes": [30],
+        "materials": null,
+        "colors": [32],
+        "style": null,
+        "gender_group": 33,
+        "age_group": null,
+
+
+        "tags": [29]
+    }
+}
