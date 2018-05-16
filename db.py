@@ -1,10 +1,11 @@
+import argparse
 from pymongo import ASCENDING
 from settings import DB
 
 
-def save(insert, update):
+def save(db, insert, update):
     if len(insert):
-        result = DB.products.insert_many(insert)
+        result = db.products.insert_many(insert)
 
     for item in update:
         query = {'$addToSet': {}, '$set': {}}
@@ -17,11 +18,11 @@ def save(insert, update):
         if query['$addToSet'] == {}:
             del query['$addToSet']
 
-        result = DB.products.update_one({'uid': item['uid']}, query)
+        result = db.products.update_one({'uid': item['uid']}, query)
 
 
-def get_revisions():
-    products = DB.products
+def get_revisions(db):
+    products = db.products
     if products.count() > 0:
         return dict([(i['uid'], i['revisions']) for i in \
             products.find({}, {'uid': 1, 'revisions': 1, '_id': 0})])
@@ -29,14 +30,22 @@ def get_revisions():
         return {}
 
 
-def drop_table():
-    DB.products.drop()
+def drop_table(db):
+    db.products.drop()
 
 
-def create_index():
-    DB.products.create_index([('uid', ASCENDING)], unique=True)
+def create_index(db):
+    db.products.create_index([('uid', ASCENDING)], unique=True)
 
 
+# You can use this script for clearing DB and creating indexes
+# python db.py 1      - testing DataBase
+# python db.py 0      - production DataBase
 if __name__ == "__main__":
-    drop_table()
-    create_index()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("debug")
+    args = parser.parse_args()
+
+    arg = False if args.debug in ['0', 0, 'False', 'false', ''] else True
+    drop_table(DB(arg))
+    create_index(DB(arg))

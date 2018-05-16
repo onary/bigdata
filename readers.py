@@ -27,7 +27,8 @@ def csv_reader(config, file):
 
 READER = {
     "csv": csv_reader,
-    "xml": xml_reader
+    "xml": xml_reader,
+    "test": csv_reader
 }
 
 

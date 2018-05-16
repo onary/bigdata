@@ -1,0 +1,24 @@
+{
+    "file": "test.txt",
+    "delimiter": "|",
+    "minRowLength": 34,
+    "fields": {
+        "uid": 0,
+        "title": 1,
+        "category": 3,
+        "url": 5,
+        "image_url": 6,
+        "description": 9,
+        "currency": 25,
+        "retail_price": 12,
+        "sale_price": 13,
+        "brand": 16,
+        "availability": 22,
+        "sizes": [30],
+        "colors": [32],
+        "gender_group": 33,
+
+
+        "tags": [29]
+    }
+}

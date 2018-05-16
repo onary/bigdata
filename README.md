@@ -58,3 +58,8 @@ Then add map to readers.py in READER dict ({config_file_name: function_reader})
 Then you can use parser with command
 
     python parser.py config_file_name
+
+
+V. Launch tests
+
+    python -m unittest tests.py

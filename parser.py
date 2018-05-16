@@ -4,18 +4,16 @@ import argparse
 from readers import reader
 from db import save, get_revisions
 from utils import hash_from_dict
-from settings import CHANK_SIZE
+from settings import CHANK_SIZE, DB
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument("config")
-args = parser.parse_args()
+def parse(arg, DEBUG=False):
+    # define DB
+    db = DB(DEBUG)
 
-
-def parse(arg):
     # load revisions from database and store in format
     # {id1: [revision1, revison2], id2: [rev3] ... }
-    revisions = defaultdict(list, get_revisions())
+    revisions = defaultdict(list, get_revisions(db))
 
     # buffers for accumulating processed data before save
     insertList = []
@@ -46,14 +44,18 @@ def parse(arg):
 
         # save data to DB when localstorage reaches chunk size
         if CHANK_SIZE in [len(insertList), len(updateList)]:
-            save(insertList, updateList)
+            save(db, insertList, updateList)
             insertList.clear()
             updateList.clear()
 
     # saving the rest of the data (if any) to DB
-    save(insertList, updateList)
+    save(db, insertList, updateList)
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("config")
+    args = parser.parse_args()
+
     if args.config:
         parse(args.config)

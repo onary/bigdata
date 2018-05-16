@@ -9,6 +9,6 @@ CONFIGS_DIR = path.join(BASE_DIR, 'configs')
 
 MCLIENT = MongoClient('mongodb://localhost:27017/')
 
-DB = MCLIENT.bigdata
+DB = lambda x: MCLIENT.bigdata_test if x else MCLIENT.bigdata
 
 CHANK_SIZE = 1000
